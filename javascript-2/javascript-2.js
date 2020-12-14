@@ -36,7 +36,10 @@ let foods = [
 */
 
 //CODE HERE
-
+console.log(foods[0].carbs)
+console.log(foods[0].calories = foods[0]['carbs'] * foods[0]['protein'] * foods[0]['fat'])
+foods.forEach((food) => {console.log(food); food.calories = (food.carb * food.protein * food.fat);}
+) 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
   For problems 2-4, you will be working with the products array below.
@@ -81,6 +84,10 @@ const products = [
 */
 
 //CODE HERE
+//
+let saleProducts = products.map(value => {value.price = value.price * .75; return value})
+
+  
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -91,6 +98,17 @@ const products = [
 */
 
 //CODE HERE
+//
+  console.log(saleProducts)
+  let blueProducts = saleProducts.filter(product => {for(e in product.color){
+    if(product.color[e] === 'blue'){
+      return product
+    }
+  }
+
+})
+  console.log(blueProducts)
+ 
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -100,7 +118,7 @@ const products = [
 */
 
 //CODE HERE
-
+let orderTotal = blueProducts.reduce((current, index) => current + index.price, 0)
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
   For these problems we will be using the objects below, contactInfo and shippingInfo,
@@ -130,7 +148,8 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+let helensInfo = Object.assign(shippingInfo, contactInfo)
+console.log(helensInfo)
 ////////////////////PROBLEM 6////////////////////
 /*
   Helen has a daughter named Ellen that lives at the same address.
@@ -139,14 +158,17 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+let ellensInfo = {...helensInfo}
+console.log(ellensInfo)
+ellensInfo.name = 'Ellen'
+ellensInfo.email = 'ellen@email.com'
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
 
 //CODE HERE
-
+let {email} = ellensInfo
 ////////////////////PROBLEM 8////////////////////
 /*
   In a single expression (one line), save the zip code and state 
@@ -154,7 +176,7 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+let {zipCode, state} = shippingInfo
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
   Use the userInfo object below to complete problems 9-11.
@@ -216,7 +238,7 @@ const userInfo = {
 */
 
 //CODE HERE
-
+let shouldAlert = userInfo.settings.alerts
 ////////////////////PROBLEM 10////////////////////
 /*
   Set the value of topic below to the last item in gn@rly_c0der_007's topics array
@@ -224,7 +246,8 @@ const userInfo = {
 */
 
 //CODE HERE
-
+console.log(userInfo['topics'])
+let topic = userInfo.topics[userInfo.topics.length - 1]
 ////////////////////PROBLEM 11////////////////////
 /*
   Set the value of commenterId below to the userId of the first response to 
@@ -232,7 +255,7 @@ const userInfo = {
 */
 
 //CODE HERE
-
+let commenterId = userInfo.comments[1].responses[0].userId
 ////////////////////PROBLEM 12////////////////////
 /*
   Create an object called 'person' that has the following properties. 
@@ -251,7 +274,25 @@ const userInfo = {
 */
 
 //CODE HERE
+let person = {
+  name: '',
+  age: 3,
+  jobs: ['','',''],
+  brithday: function () {
+    this.age + 1;
+    return this.age
+  },
+  favorites: {
+    color: '',
+    number: 1,
+    book: '',
 
+  },
+  kids: [ {name:'', age: 1 }, {name:'', age: 1},]
+
+
+ 
+}
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
   For the last two problems, you will be determining the 
@@ -276,7 +317,7 @@ const workout = {
 //let context1 = myFunc
 //let context1 = window
 //let context1 = global
-// let context1 = workout
+ let context1 = workout
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -289,6 +330,6 @@ function myFunc() {
 }
 
 //let context2 = myFunc
-// let context2 = window
+ let context2 = window
 //let context2 = global
 //let context2 = workout
